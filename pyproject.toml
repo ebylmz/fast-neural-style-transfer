@@ -1,0 +1,36 @@
+[project]
+name = "fast-neural-style-transfer"
+version = "0.1.0"
+description = "Real-time neural style transfer using feedforward networks and perceptual loss."
+authors = [
+    { name = "Emirkan Burak Yılmaz", email = "emirkan.b.yilmaz@gmail.com" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "torch",
+    "torchvision",
+    "tensorboard",
+    "Pillow",
+    "gradio"
+]
+
+[project.optional-dependencies]
+dev = [
+    "matplotlib"
+]
+
+
+[project.urls]
+Homepage = "https://github.com/ebylmz/fast-neural-style-transfer"
+Repository = "https://github.com/ebylmz/fast-neural-style-transfer"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nst*"]
