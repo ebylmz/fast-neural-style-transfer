@@ -33,7 +33,7 @@ def train(dataloader, training_config):
 
     # Load and process style image
     style_batch = utils.load_style_image(
-        image_path=paths["style_image_path"],
+        image_path=paths["style_image"],
         device=device,
         image_size=None,
         batch_size=training_params["batch_size"]
@@ -49,8 +49,9 @@ def train(dataloader, training_config):
         writer = SummaryWriter(log_dir=logging_cfg["log_dir"])
         writer.add_hparams({
             "lr": training_params["lr"],
-            "content_weight": weight_params["content_weight"],
-            "style_weight": weight_params["style_weight"],
+            "content_weight": weight_params["content"],
+            "style_weight": weight_params["style"],
+            "tv_weight": weight_params["tv"],
             "batch_size": training_params["batch_size"]
         }, {})
 
@@ -71,17 +72,17 @@ def train(dataloader, training_config):
             stylized_features = perceptual_net(stylized_batch)
 
             # Step 3: Compute content loss (using relu2_2 layer)
-            content_loss = weight_params["content_weight"] * mse_loss(content_features.relu2_2, stylized_features.relu2_2)
+            content_loss = weight_params["content"] * mse_loss(content_features.relu2_2, stylized_features.relu2_2)
 
             # Step 4: Compute style loss using Gram matrices
             style_loss = 0.0
             stylized_grams = [perceptual.gram_matrix(fmap) for fmap in stylized_features]
             for stylized_gram, target_gram in zip(stylized_grams, target_style_grams):
                 style_loss += mse_loss(stylized_gram, target_gram)
-            style_loss = weight_params["style_weight"] * (style_loss / len(target_style_grams))
+            style_loss = weight_params["style"] * (style_loss / len(target_style_grams))
 
             # Step 5: Compute total variation loss - enforces image smoothness
-            tv_loss = weight_params["tv_weight"] * perceptual.total_variation_loss(stylized_batch)
+            tv_loss = weight_params["tv"] * perceptual.total_variation_loss(stylized_batch)
 
             # Step 6: Combine losses and backpropagate
             total_loss = content_loss + style_loss + tv_loss

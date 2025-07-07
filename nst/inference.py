@@ -57,7 +57,7 @@ def stylize_from_path(
     input_pil = utils.tensor_to_pil(input_image.squeeze(0))  # Convert back to PIL
 
     # Stylize
-    output_pil = stylize(model, input_pil, device)
+    output_pil = stylize(model, input_pil)
 
     # Save and optionally show
     output_pil.save(output_path)

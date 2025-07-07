@@ -41,8 +41,8 @@ def create_app():
                 result_output = gr.Image(label="Stylized Result", type="pil", height=500)
 
         submit_btn.click(
-            fn=stylize_pil_image,
-            inputs=[content_input, selected_style, models],
+            fn=lambda img, style: stylize_pil_image(img, style, models),
+            inputs=[content_input, selected_style],
             outputs=result_output
         )
 
@@ -61,4 +61,4 @@ for cfg in style_configs:
     models[cfg.style_name] = model
 
 app = create_app()
-app.launch(debug=True)
+app.launch(debug=True, share=True)

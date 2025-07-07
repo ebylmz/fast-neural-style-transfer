@@ -14,14 +14,14 @@ class StyleConfig:
         self.style_weight = style_weight
         self.tv_weight = tv_weight
     
-starry_night_cfg = StyleConfig(paths.MODEL_DIR, "starry_night", "Starry Night", style_weight=4e5, content_weight=2e0, tv_weight=2e0),
-mosaic_cfg_cfg = StyleConfig(paths.MODEL_DIR, "mosaic", "Mosaic", style_weight=4e5, content_weight=2e0, tv_weight=2e0),
-crystal_grove_cfg = StyleConfig(paths.MODEL_DIR, "crystal_grove", "Crystal Grove", style_weight=9e5, content_weight=2e0, tv_weight=2e0),
-la_muse_cfg = StyleConfig(paths.MODEL_DIR, "la_muse", "La Muse", style_weight=9e5, content_weight=2e0, tv_weight=2e0),
-candy_cfg = StyleConfig(paths.MODEL_DIR, "candy", "Candy", style_weight=9e5, content_weight=2e0, tv_weight=2e0),
+starry_night_cfg = StyleConfig("starry_night", "Starry Night", style_weight=4e5, content_weight=2e0, tv_weight=2e0)
+mosaic_cfg = StyleConfig("mosaic", "Mosaic", style_weight=4e5, content_weight=2e0, tv_weight=2e0)
+crystal_grove_cfg = StyleConfig("crystal_grove", "Crystal Grove", style_weight=9e5, content_weight=2e0, tv_weight=2e0)
+la_muse_cfg = StyleConfig("la_muse", "La Muse", style_weight=9e5, content_weight=2e0, tv_weight=2e0)
+candy_cfg = StyleConfig("candy", "Candy", style_weight=9e5, content_weight=2e0, tv_weight=2e0)
 
 def get_style_configs():
-     return [starry_night_cfg, mosaic_cfg_cfg, crystal_grove_cfg, la_muse_cfg, candy_cfg]
+     return [starry_night_cfg, mosaic_cfg, crystal_grove_cfg, la_muse_cfg, candy_cfg]
 
 
 def generate_training_config(

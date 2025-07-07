@@ -92,3 +92,27 @@ def post_process_image(tensor_img):
     # Convert from CHW (PyTorch) to HWC (standard image format)
     img = np.transpose(img, (1, 2, 0))
     return img
+
+def tensor_to_pil(tensor, is_normalized=True, is_255_range=False):
+    if tensor.dim() == 4:
+        tensor = tensor.squeeze(0)  # Convert [1, 3, H, W] -> [3, H, W]
+
+    assert tensor.shape[0] == 3, f"Expected 3 channels, got {tensor.shape}"
+
+    tensor = tensor.detach().cpu().float()
+
+    if is_normalized:
+        if is_255_range:
+            mean = torch.tensor(IMAGENET_MEAN_255).view(3, 1, 1)
+            std = torch.tensor(IMAGENET_STD_NEUTRAL).view(3, 1, 1)
+        else:
+            mean = torch.tensor(IMAGENET_MEAN_1).view(3, 1, 1)
+            std = torch.tensor(IMAGENET_STD_1).view(3, 1, 1)
+        tensor = tensor * std + mean
+
+    if is_255_range:
+        tensor = tensor / 255.0  # Bring to [0, 1] range
+
+    tensor = tensor.clamp(0, 1)
+    image = transforms.ToPILImage()(tensor)
+    return image
