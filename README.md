@@ -77,7 +77,7 @@ conda activate nst
 3. **Install dependencies**
 
 ```bash
-pip install -e .[dev]
+pip install -e .
 ```
 
 ---
