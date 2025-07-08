@@ -14,7 +14,8 @@ dependencies = [
     "torchvision",
     "tensorboard",
     "Pillow",
-    "gradio"
+    "gradio",
+    "matplotlib"
 ]
 
 [project.optional-dependencies]
