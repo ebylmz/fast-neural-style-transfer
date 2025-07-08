@@ -18,12 +18,6 @@ dependencies = [
     "matplotlib"
 ]
 
-[project.optional-dependencies]
-dev = [
-    "matplotlib"
-]
-
-
 [project.urls]
 Homepage = "https://github.com/ebylmz/fast-neural-style-transfer"
 Repository = "https://github.com/ebylmz/fast-neural-style-transfer"
