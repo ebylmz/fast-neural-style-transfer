@@ -1,6 +1,11 @@
 import torch
 import gradio as gr
 
+import os
+
+# Set this at the very beginning before any import from nst
+# os.environ["NST_ROOT_DIR"] = "/home/user/app"
+
 from nst.transform_net import TransformNet
 from nst.inference import stylize
 from nst.config import get_style_configs
@@ -28,7 +33,6 @@ def create_app():
                     show_label=True,
                     interactive=False,
                     columns=len(thumbnails),
-                    # rows=2,
                     height=250
                 )
 
@@ -38,7 +42,7 @@ def create_app():
                 submit_btn = gr.Button("Stylize")
 
             with gr.Column():
-                result_output = gr.Image(label="Stylized Result", type="pil", height=500)
+                result_output = gr.Image(label="Stylized Result", type="pil", format="png", height=500)
 
         submit_btn.click(
             fn=lambda img, style: stylize_pil_image(img, style, models),
@@ -61,4 +65,4 @@ for cfg in style_configs:
     models[cfg.style_name] = model
 
 app = create_app()
-app.launch(debug=True, share=True)
+app.launch(share=True)
