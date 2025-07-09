@@ -15,7 +15,6 @@ This project implements a fast neural style transfer pipeline based on the frame
 
 In the following sections, stylization results are presented first, followed by installation instructions and technical details. For an in-depth explanation, please see the [project report](report.pdf).
 
----
 
 ## 🖼️ Stylization Results
 
@@ -46,7 +45,6 @@ Below are sample outputs from five different pre-trained models. Each image show
   <img src="assets/results_la_muse.png" width="800"/>
 </div>
 
----
 
 ## 🚀 App
 
@@ -59,7 +57,6 @@ A Gradio web application has been built and deployed on Hugging Face Spaces, all
   <img src="assets/app_output_screen.png" width="800"/>
 </div>
 
----
 
 ## 📦 Setup
 
@@ -82,7 +79,6 @@ conda activate nst
 pip install -e .
 ```
 
----
 
 ## 🧠 Model Architecture / Description 
 
@@ -106,7 +102,6 @@ pip install -e .
 
   The optimization objective: $L_{total}$ = $\lambda_c$ * L_content + $\lambda_s$ * L_style + $\lambda_{tv}$ * L_TV
 
----
 
 ## 🏋️ Training
 
@@ -142,15 +137,12 @@ Below are the training curves and snapshots for each trained style model:
 </div>
 
 
----
-
 ## 📌 Conclusion
 
 This project demonstrates how fast neural style transfer can be achieved using feedforward convolutional networks trained with perceptual loss functions. By training separate models for different artistic styles, stylized images can be generated in real-time with a single forward pass. 
 
 Through careful tuning of style weights and leveraging high-level VGG features, the models strike a balance between preserving content structure and capturing the aesthetics of the reference artwork.
 
----
 
 ## 📜 References
 
@@ -158,7 +150,6 @@ Through careful tuning of style weights and leveraging high-level VGG features, 
 
 [2] [Perceptual Losses for Real-Time Style Transfer and Super-Resolution (Johnson et al., 2016)](https://arxiv.org/abs/1603.08155)
 
----
 
 ## ⚖️ License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
