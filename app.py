@@ -25,7 +25,7 @@ def create_app():
 
         with gr.Row():
             with gr.Column():
-                content_input = gr.Image(label="Upload your content image", type="pil", height=500)
+                content_input = gr.Image(label="Upload your content image", type="pil", height=450)
 
                 style_gallery = gr.Gallery(
                     label="Choose a style by clicking the image",
@@ -42,7 +42,7 @@ def create_app():
                 submit_btn = gr.Button("Stylize")
 
             with gr.Column():
-                result_output = gr.Image(label="Stylized Result", type="pil", format="png", height=500)
+                result_output = gr.Image(label="Stylized Result", type="pil", format="png", height=450)
 
         submit_btn.click(
             fn=lambda img, style: stylize_pil_image(img, style, models),
