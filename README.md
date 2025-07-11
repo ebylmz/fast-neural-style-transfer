@@ -53,8 +53,7 @@ A Gradio web application has been built and deployed on Hugging Face Spaces, all
 👉 Try it out on the [live application](https://huggingface.co/spaces/ebylmz/fast-neural-style-transfer).
 
 <div align="center">
-  <img src="assets/app_input_screen.png" width="800"/>
-  <img src="assets/app_output_screen.png" width="800"/>
+  <img src="assets/application.gif" width="800"/>
 </div>
 
 
