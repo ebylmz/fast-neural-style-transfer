@@ -1,4 +1,3 @@
 *.egg-info
-models/
 __pycache__
 *.pyc
