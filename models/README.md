@@ -1,1 +1,0 @@
-Trained models can be found from [HuggingFace](https://huggingface.co/spaces/ebylmz/fast-neural-style-transfer/tree/main/models) repository.
