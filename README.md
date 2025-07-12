@@ -13,7 +13,7 @@ Traditional methods, such as the optimization-based approach introduced by Gatys
 
 This project implements a fast neural style transfer pipeline based on the framework introduced by Johnson et al. [2], with minor modifications.
 
-In the following sections, stylization results are presented first, followed by installation instructions and technical details. For an in-depth explanation, please see the [project report](report.pdf). Additionally, trained model weights can be found in [HuggingFace](https://huggingface.co/spaces/ebylmz/fast-neural-style-transfer/tree/main/models) repository.
+In the following sections, stylization results are presented first, followed by installation instructions and technical details. For an in-depth explanation, please see the [project report](report.pdf).
 
 ## 🖼️ Stylization Results
 
@@ -105,7 +105,7 @@ pip install -e .
 
 The transformation network was trained using the Adam optimizer with a fixed learning rate of $10^{-3}$. A batch size of 4 was used. Normalized images were fed through the network, and perceptual losses were computed with a fixed VGG-16 loss network. The loss was then backpropagated.
 
-Each style model was trained with fixed content and total variation loss weights of $\lambda_c = 2.0$ and $\lambda_{tv} = 2.0$, while the style loss weight $\lambda_s$ was individually tuned for each style in the range of $4 \times 10^5$ to $9 \times 10^5$ to balance stylization strength and content preservation. Training was performed for 1 epoch using the Microsoft COCO dataset on an NVIDIA A100 GPU in a Google Colab environment, requiring approximately an hour per model. In total, five separate models were trained, each corresponding to a unique style of image. For training pipeline and results, you can check the [training notebook](https://colab.research.google.com/drive/1umoj265TKdSOWTwqplEZZF-boubqy45s?usp=sharing).
+Each style model was trained with fixed content and total variation loss weights of $\lambda_c = 2.0$ and $\lambda_{tv} = 2.0$, while the style loss weight $\lambda_s$ was individually tuned for each style in the range of $4 \times 10^5$ to $9 \times 10^5$ to balance stylization strength and content preservation. Training was performed for 1 epoch using the Microsoft COCO dataset on an NVIDIA A100 GPU in a Google Colab environment, requiring approximately an hour per model. In total, five separate models were trained, each corresponding to a unique style of image. For training pipeline and results, you can check the [training notebook](https://colab.research.google.com/drive/1umoj265TKdSOWTwqplEZZF-boubqy45s?usp=sharing). Additionally, trained model weights can be found in project [HuggingFace](https://huggingface.co/spaces/ebylmz/fast-neural-style-transfer/tree/main/models) repository.
 
 Below are the training curves and snapshots for each trained style model:
 
