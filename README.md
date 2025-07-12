@@ -13,8 +13,7 @@ Traditional methods, such as the optimization-based approach introduced by Gatys
 
 This project implements a fast neural style transfer pipeline based on the framework introduced by Johnson et al. [2], with minor modifications.
 
-In the following sections, stylization results are presented first, followed by installation instructions and technical details. For an in-depth explanation, please see the [project report](report.pdf).
-
+In the following sections, stylization results are presented first, followed by installation instructions and technical details. For an in-depth explanation, please see the [project report](report.pdf). Additionally, trained model weights can be found in [HuggingFace](https://huggingface.co/spaces/ebylmz/fast-neural-style-transfer/tree/main/models) repository.
 
 ## 🖼️ Stylization Results
 
