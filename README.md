@@ -61,7 +61,7 @@ A Gradio web application has been built and deployed on Hugging Face Spaces, all
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/fast-neural-style-transfer.git
+git clone https://github.com/ebylmz/fast-neural-style-transfer.git
 cd fast-neural-style-transfer
 ```
 
